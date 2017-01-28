@@ -51,6 +51,12 @@ group :development, :test do
   gem 'pry-rails'  # lis‰‰ siis t‰m‰ rivi!
 end
 
+group :development, :test do
+  gem "better_errors"
+
+  #...
+end
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
