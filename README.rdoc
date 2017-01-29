@@ -1,3 +1,3 @@
 Sovelluksen Heroku-instanssi:
 
-https://powerful-plains-72988.herokuapp.com/breweries
+https://sleepy-savannah-74751.herokuapp.com/
