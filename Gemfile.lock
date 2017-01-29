@@ -43,7 +43,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.12.2)
+    coffee-script-source (1.8.0)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -141,6 +141,7 @@ DEPENDENCIES
   better_errors
   byebug
   coffee-rails (~> 4.0.0)
+  coffee-script-source (= 1.8.0)
   jbuilder (~> 2.0)
   jquery-rails
   pg
