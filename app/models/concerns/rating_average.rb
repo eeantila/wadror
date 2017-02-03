@@ -2,9 +2,8 @@ module RatingAverage
   extend ActiveSupport::Concern
 
   def average_rating
-    a = ratings.map { |rating| rating.score }
-    b = a.inject(0) { |result, element| result + element }
-    b.to_f/ratings.count
+    return 0 if ratings.empty?
+    ratings.map{ |r| r.score }.sum / ratings.count.to_f
   end
 
 end
