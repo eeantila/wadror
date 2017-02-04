@@ -8,14 +8,23 @@
 </head>
 <body>
   <div class="navibar">
-    <%= link_to 'breweries', breweries_path %>
-    <%= link_to 'beers', beers_path %>
-    <%= link_to 'ratings', ratings_path %>
+    <%= link_to 'Breweries', breweries_path %>
+    <%= link_to 'Beers', beers_path %>
+    <%= link_to 'Ratings', ratings_path %>
+    <%= link_to 'Users', users_path %>
+    |
+    <% unless current_user %>
+      <%= link_to 'Log in', signin_path %>
+      <%= link_to 'Register', signup_path %>
+    <% end %>
+    <% if current_user %>
+      <%= link_to current_user.username, user_path(current_user) %>
+      <%= link_to 'Rate a beer', new_rating_path %>
+      <%= link_to 'Log out', signout_path, method: :delete%>
+    <% end %>
   </div>
 
-<% if not session[:user_id].nil? %>
-  <p><%= User.find(session[:user_id]).username %> signed in</p>
-<% end %>
+
 
 <%= yield %>
 
