@@ -50,15 +50,15 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'pry-rails'  # lisää siis tämä rivi!
-end
-
-group :development, :test do
+  gem 'pry-rails'
   gem "better_errors"
-
-  #...
+  gem 'rspec-rails', '~> 3.5'
 end
+
+group :development do
+  gem 'web-console', '~> 2.0'
+end
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
