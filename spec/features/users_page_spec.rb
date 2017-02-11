@@ -41,6 +41,20 @@ describe "User" do
       expect(page).to_not have_content 'anonymous 15'
     end
 
+    it "properly deletes rating" do
+      sign_in(username:"Pekka", password:"Foobar1")
+      FactoryGirl.create :beer
+      FactoryGirl.create :rating, user_id:1, beer_id:1
+      FactoryGirl.create :rating2, user_id:1, beer_id:1
+
+      visit user_path(1)
+      page.first(:link, "delete").click
+
+      expect(page).to_not have_content 'anonymous 10'
+      expect(page).to have_content 'anonymous 20'
+      expect(Rating.count).to eq(1)
+    end
+
   end
 
   it "when signed up with good credentials, is added to the system" do
