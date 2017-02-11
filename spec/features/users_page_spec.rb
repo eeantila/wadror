@@ -23,6 +23,24 @@ describe "User" do
       expect(page).to have_content 'Username and/or password mismatch'
     end
 
+    it "shows user's and only user's ratings on user page" do
+      FactoryGirl.create :user, username:"Matti"
+      sign_in(username:"Pekka", password:"Foobar1")
+      FactoryGirl.create :beer
+      FactoryGirl.create :rating, user_id:1, beer_id:1
+      FactoryGirl.create :rating2, user_id:1, beer_id:1
+      FactoryGirl.create :rating, score:15, user_id:2, beer_id:1
+
+      visit user_path(1)
+
+      expect(page).to have_content 'Has made 2 ratings'
+      expect(page).to have_content 'Pekka'
+      expect(page).to have_content 'anonymous 10'
+      expect(page).to have_content 'anonymous 20'
+      expect(page).to_not have_content 'Matti'
+      expect(page).to_not have_content 'anonymous 15'
+    end
+
   end
 
   it "when signed up with good credentials, is added to the system" do
