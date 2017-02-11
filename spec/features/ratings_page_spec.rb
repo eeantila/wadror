@@ -32,8 +32,6 @@ describe "Rating" do
 
     visit ratings_path
 
-save_and_open_page
-
     expect(page).to have_content 'Number of ratings: 2'
     expect(page).to have_content 'iso 3 10 Pekka'
     expect(page).to have_content 'iso 3 20 Pekka'
