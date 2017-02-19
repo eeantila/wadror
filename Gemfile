@@ -66,6 +66,8 @@ group :test do
   gem 'simplecov', require: false
 end
 
+gem 'httparty'
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
